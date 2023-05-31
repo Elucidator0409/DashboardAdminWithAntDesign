@@ -1,4 +1,4 @@
-export const getRecentOrders= () => {
+export const getOrders= () => {
     return fetch('https://dummyjson.com/carts/1')
     .then(res => res.json())
     .then(console.log);
