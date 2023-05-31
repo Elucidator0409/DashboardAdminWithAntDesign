@@ -1,9 +1,10 @@
-import React from 'react'
-import { Space, Typography, Card, Statistic } from 'antd'
+import React, { useState,useEffect } from 'react'
+import { Space, Typography, Card, Statistic, Table } from 'antd'
 import { ShoppingCartOutlined,ShoppingOutlined,UserOutlined } from '@ant-design/icons'
 import DemoLine from 'Component/Chart/Linechart'
 import DemoMix from 'Component/Chart/Multiview'
 import styled from 'styled-components'
+import { getOrders } from 'API'
 
 const StyledDiv = styled.div `
   width: 60vw;
@@ -68,17 +69,50 @@ function Dashboard() {
             </Space>
           </Card>
         </Space>
-        <DemoMix />
-        </div>
-        <div className='content'>
-          <Space>
-          <DemoLine />
-          </Space>
+        <Space>
+          <RecentOrders />
+        </Space>
         
         </div>
+      
         
     </StyledDiv>
   )
+}
+
+function RecentOrders() {
+
+  const [dataSource, setDataSource] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true);
+  
+    getOrders().then(res => {
+      setDataSource(res.products);
+      setLoading(false);
+    });
+  }, [])
+  
+
+  return <Table
+    columns={[
+      {
+      title:'Title',
+      dataIndex:"title",
+      },
+      {
+      title:'Quantity',
+      dataIndex:"quantity",
+      },
+      {
+        title:'Price',
+        dataIndex:"discountedPrice",
+      },
+    ]}
+    loading={loading}
+    dataSource={dataSource}
+  ></Table>
 }
 
 export default Dashboard
