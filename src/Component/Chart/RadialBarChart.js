@@ -5,7 +5,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+import "./radiantbar.css"
 import Chart from "react-apexcharts"
 class ApexChart extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class ApexChart extends React.Component {
     
         this.state = {
           options: {
-            labels: ["A", "B", "C", "D", "E"],
+            labels: ["Bank", "Token", "Stock", "Cash"],
             legend: {
               show: true,
               onItemClick: {
@@ -27,6 +27,7 @@ class ApexChart extends React.Component {
               radialBar: {
                 size: undefined,
                 inverseOrder: false,
+                
                 startAngle: 0,
                 endAngle: 360,
                 offsetX: 0,
@@ -104,7 +105,7 @@ class ApexChart extends React.Component {
             }
           },
     
-          series: [100, 255, 41, 17, 15]
+          series: [25, 49, 63, 75]
         };
       }
     
