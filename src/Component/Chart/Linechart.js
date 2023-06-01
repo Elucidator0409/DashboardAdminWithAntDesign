@@ -5,73 +5,110 @@ import { Line } from '@ant-design/plots';
 const DemoLine = () => {
   const data = [
     {
-      year: '1991',
+      time: '12:00',
+      value: 54,
+    },
+    {
+      time: '12:10',
+      value: 52,
+    },
+    {
+      time: '12:20',
+      value: 43,
+    },
+    {
+      time: '12:30',
+      value: 39,
+    },
+    {
+      time: '1:00',
+      value: 44,
+    },
+    {
+      time: '1:30',
+      value: 63,
+    },
+    {
+      time: '2:00',
+      value: 30,
+    },
+    {
+      time: '2:30',
       value: 3,
     },
     {
-      year: '1992',
-      value: 4,
+      time: '3:00',
+      value: 40,
     },
     {
-      year: '1993',
-      value: 3.5,
+      time: '3:30',
+      value: 61,
     },
     {
-      year: '1994',
-      value: 5,
+      time: '4:00',
+      value: 49,
+    },
+   
+    
+    {
+      time: '5:00',
+      value: 61,
     },
     {
-      year: '1995',
-      value: 4.9,
+      time: '5:30',
+      value: 63,
     },
     {
-      year: '1996',
-      value: 6,
+      time: '6:00',
+      value: 75,
     },
     {
-      year: '1997',
-      value: 7,
+      time: '6:30',
+      value: 77,
     },
     {
-      year: '1998',
-      value: 9,
+      time: '7:00',
+      value: 90,
     },
     {
-      year: '1999',
-      value: 13,
+      time: '8:00',
+      value: 30,
     },
+    {
+      time: '9:00',
+      value: 63,
+    },
+    {
+      time: '10:00',
+      value: 40,
+    },
+    {
+      time: '11:00',
+      value: 50,
+    },
+    {
+      time: '11:10',
+      value: 40,
+    },
+    {
+      time: '11:20',
+      value: 40,
+    },
+    
   ];
   const config = {
     data,
-    xField: 'year',
+    padding: 'auto',
+    xField: 'time',
     yField: 'value',
-    label: {},
-    point: {
-      size: 5,
-      shape: 'diamond',
-      style: {
-        fill: 'white',
-        stroke: '#5B8FF9',
-        lineWidth: 2,
-      },
+    xAxis: {
+      // type: 'timeCat',
+      tickCount: 5,
     },
-    tooltip: {
-      showMarkers: false,
-    },
-    state: {
-      active: {
-        style: {
-          shadowBlur: 4,
-          stroke: '#000',
-          fill: 'red',
-        },
-      },
-    },
-    interactions: [
-      {
-        type: 'marker-active',
-      },
-    ],
+    smooth: true,
+    color: "l(0) 0:#9747FF  1:#14F4C9"
+    
+    
   };
   return <Line {...config} />;
 };
