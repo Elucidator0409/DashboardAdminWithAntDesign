@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { Typography,Space, Table, Tag } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import  { ProductForm } from "Component/Pages/productForm/ProductForm"
+import React, { useState } from 'react'
+import { Typography,Space, Table } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
-function Products() {
+import { CouponForm } from './couponForm/CouponForm';
+
+function Coupons() {
   
   const [dataProduct, setDataProduct] = useState([]);
 
   
-  const addProductToList= product => {
+ 
+
+  const addCouponToList= product => {
     setDataProduct([...dataProduct, { 
       name: product.name,
-      quantity: product.quantity,
-      price: product.price, }])
+      code: product.code }])
     alert(`${product.name} is added to list successfully !`)
   }
 
@@ -26,15 +28,11 @@ function Products() {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Quantity',
-      dataIndex: 'quantity',
-      key: 'quantity',
+      title: 'Code',
+      dataIndex: 'code',
+      key: 'code',
     },
-    {
-      title: 'Price',
-      dataIndex: 'price',
-      key: 'price',
-    },
+    
     {
       title: 'Action',
       key: 'action',
@@ -74,19 +72,14 @@ function Products() {
 
     return (
     <div>  
-      <Typography.Text>Products</Typography.Text>
+      <Typography.Text>Coupons</Typography.Text>
       
-      <ProductForm   addProductToListProp={addProductToList} /*removeItemProp={removeProduct}*/ />
       
+      <CouponForm addCouponToListProp={addCouponToList}/>
       <Table columns={columns} dataSource={dataProduct} pagination={{ pageSize:5, }}/>
-      {/* { 
-        products.map(product => <ProductListItem key={ product.id }
-                                  item= { products }
-                                  deleteProductProp = {deleteProduct}
-                                  />)
-      } */}
+      
     </div>
   )
 }
 
-export default Products
+export default Coupons

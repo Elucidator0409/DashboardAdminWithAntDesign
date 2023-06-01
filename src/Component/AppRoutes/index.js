@@ -5,6 +5,7 @@ import Users from 'Component/Pages/Users'
 import Customers from 'Component/Pages/Customers'
 import Products from 'Component/Pages/Products'
 import Orders from 'Component/Pages/Orders'
+import Coupons from 'Component/Pages/Coupon'
 function AppRoutes() {
   return (
     
@@ -14,6 +15,7 @@ function AppRoutes() {
         <Route path="/customers" element={<Customers />}></Route>
         <Route path="/product" element={<Products />}></Route>
         <Route path="/orders" element={<Orders />}></Route>
+        <Route path="/coupons" element={<Coupons />}></Route>
       </Routes>
     
   )

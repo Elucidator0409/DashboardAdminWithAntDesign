@@ -1,5 +1,5 @@
 import { Menu } from 'antd'
-import { ShoppingCartOutlined , ShoppingOutlined , DashboardOutlined, UserOutlined, SmileOutlined  } from '@ant-design/icons';
+import { ShoppingCartOutlined , ShoppingOutlined , DashboardOutlined, UserOutlined, SmileOutlined, CodepenOutlined  } from '@ant-design/icons';
 import React from 'react'
 
 import { useNavigate } from 'react-router-dom';
@@ -41,6 +41,11 @@ function SideMenu() {
             label:"Orders",
             icon: <ShoppingCartOutlined />,
             key:'/orders'
+          },
+          {
+            label:"Coupons",
+            icon: <CodepenOutlined />,
+            key:'/coupons'
           },
             
         ]}
