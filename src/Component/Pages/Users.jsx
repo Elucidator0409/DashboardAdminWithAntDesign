@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Space, Table, Tag, Button, Modal, Form, Input } from "antd";
 import { useDispatch, useSelector } from 'react-redux'
 const SubmitButton = ({ form }) => {
@@ -54,6 +54,18 @@ const columns = [
     title: "Phone",
     key: "phone",
     dataIndex: "phone",
+  },
+  {
+    key:'5',
+    title:'Actions',
+    render: (record) => {
+      return (
+        <>
+          <EditOutlined />
+          <DeleteOutlined style={{ color: "red", marginLeft: 12}} />
+        </>
+      )
+    },
   },
 ];
 

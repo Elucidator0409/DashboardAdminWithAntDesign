@@ -1,4 +1,5 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import Excel from 'Component/Excel';
 import { Typography,Table, Button, Modal, Input } from 'antd'
 import React, { useState } from 'react'
 
@@ -126,6 +127,55 @@ function Customers() {
     <div>
       <Typography.Title >Customers</Typography.Title>
       <Button onClick={()=>{addCustomer(dataSource)}}>Add new customer</Button>
+      <Excel
+          fileName="export-customer"
+          data={[
+            {
+              columns: [
+                {
+                  title: "Id",
+                  dataIndex: "id",
+                  width: 5,
+                },
+                {
+                  title: "Name",
+                  dataIndex: "name",
+                  width: 20,
+                },
+                {
+                  title: "Email",
+                  dataIndex: "email",
+                  width: 50,
+                },
+                {
+                  title: "Address",
+                  dataIndex: "address",
+                  width: 50,
+                },
+              ],
+              data: dataSource,
+              tabName: "info",
+            },
+            {
+              columns: [
+                {
+                  title: "Name",
+                  dataIndex: "username",
+                  width: 30,
+                },
+                {
+                  title: "Phone",
+                  dataIndex: "phone",
+                  width: 30,
+                },
+              ],
+              data: dataSource,
+              tabName: "contact",
+            },
+          ]}
+        >
+          <Button>Export Customer</Button>
+        </Excel>
       <Table
       columns={columns}
       dataSource={dataSource}
@@ -134,7 +184,7 @@ function Customers() {
 
       </Table>
       <Modal
-        title="Edit Customer"
+        title="Add Customer"
         visible={isAdding}
         okText="Save"
         onCancel={() => {
@@ -236,6 +286,7 @@ function Customers() {
           }}
         />
       </Modal>
+      
     </div>
   )
 }

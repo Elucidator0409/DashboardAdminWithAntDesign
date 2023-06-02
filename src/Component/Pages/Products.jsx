@@ -57,16 +57,7 @@ function Products() {
     })
   }
   
-  // const data = () => [
-  //   products.map(product => ({
-  //     key: product.id,
-  //     name: product.name,
-  //     quantity: product.quantity,
-  //     price: product.price,
-      
-  //   }))
-    
-  // ];
+
 
     
       
